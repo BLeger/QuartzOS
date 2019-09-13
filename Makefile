@@ -2,7 +2,7 @@ GPP_PARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exce
 AS_PARAMS = -f elf
 LD_PARAMS = -T linker.ld -melf_i386
 
-OBJECTS = loader.o kernel.o
+OBJECTS = loader.o kernel.o GlobalDescriptorTable.o
 
 all: kernel.iso
 

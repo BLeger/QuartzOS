@@ -1,4 +1,5 @@
 #include "types.h"
+#include "GlobalDescriptorTable.h"
 
 void printf(const char* str)
 {
@@ -23,6 +24,8 @@ extern "C" void callConstructors()
 extern "C" void kmain(void* multibooot_structure, uint32_t magic_number) 
 {
     printf("Welcome to Quartz OS");
+
+    GlobalDescriptorTable gdt();
 
     while(true);
 }

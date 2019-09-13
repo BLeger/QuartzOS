@@ -2,5 +2,7 @@ bochs.bat
 qemu.bat
 bochs/*
 
+*.iso
+
 *.elf
 *.o
