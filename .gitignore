@@ -1,0 +1,6 @@
+bochs.bat
+qemu.bat
+bochs/*
+
+*.elf
+*.o
