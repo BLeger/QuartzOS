@@ -1,5 +1,6 @@
 #include "types.h"
 #include "GlobalDescriptorTable.h"
+#include "InterruptManager.h"
 
 #define SCREEN_WIDTH 80
 #define SCREEN_HEIGHT 25
@@ -64,7 +65,11 @@ extern "C" void kmain(void* multibooot_structure, uint32_t magic_number)
 
     printf("Welcome to Quartz OS\n");
 
-    GlobalDescriptorTable gdt();
+	GlobalDescriptorTable gdt{};
+	InterruptManager interrupt_manager{ &gdt };
+	
+
+	interrupt_manager.activate();
 
     while(true);
 }
