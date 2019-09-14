@@ -1,29 +1,28 @@
 extern _ZN16InterruptManager15handleInterruptEhj
 
 section .data
-	interrupt_number dd 0
-	IRQ_BASE db 0x20
+	interrupt_number db 0
 
 section .text
 
 global _ZN16InterruptManager22ignoreInterruptRequestEv
 
+%define INT_OFFSET 0x20
 
 %macro HandleException 1
 	global _ZN16InterruptManager19handleException%+%1%+Ev
 	_ZN16InterruptManager19handleException%+%1%+Ev:
-	mov dword [interrupt_number], %1
+	mov byte [interrupt_number], %1
 	jmp int_bottom
 %endmacro
 
 %macro HandleInterruptRequest 1
 	global _ZN16InterruptManager26handleInterruptRequest%+%1%+Ev
 	_ZN16InterruptManager26handleInterruptRequest%+%1%+Ev:
-	mov dword [interrupt_number], %1 + IRQ_BASE ; if bug <= inspect why i needed a dword, should mov the value of %1 + IRQ_BASE, not a 32 bit address
+	mov byte [interrupt_number], %1 + INT_OFFSET
 	jmp int_bottom
 %endmacro
 
-HandleException 0x13
 
 HandleInterruptRequest 0x00
 HandleInterruptRequest 0x01
