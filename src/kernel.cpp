@@ -1,6 +1,7 @@
 #include "types.h"
 #include "GlobalDescriptorTable.h"
-#include "InterruptManager.h"
+#include "interrupts/InterruptManager.h"
+#include "drivers/KeyboardDriver.h"
 
 #define SCREEN_WIDTH 80
 #define SCREEN_HEIGHT 25
@@ -68,6 +69,8 @@ extern "C" void kmain(void* multibooot_structure, uint32_t magic_number)
 	GlobalDescriptorTable gdt{};
 	InterruptManager interrupt_manager{ &gdt };
 	
+	KeyboardDriver keyboard{};
+	interrupt_manager.addHandler(&keyboard);
 
 	interrupt_manager.activate();
 

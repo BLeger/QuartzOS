@@ -2,11 +2,20 @@ GPP_PARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exce
 AS_PARAMS = -f elf
 LD_PARAMS = -T linker.ld -melf_i386
 
-OBJECTS = loader.o kernel.o GlobalDescriptorTable.o Port.o interrupts.o InterruptManager.o
+OBJECTS = \
+	src/lib/io.o \
+	src/loader.o \
+	src/kernel.o \
+	src/GlobalDescriptorTable.o \
+	src/Port.o \
+	src/interrupts/interrupts.o \
+	src/interrupts/InterruptManager.o \
+	src/interrupts/InterruptHandler.o \
+	src/drivers/KeyboardDriver.o
 
 all: kernel.iso
 
-%.o: src/%.cpp
+%.o: %.cpp
 	g++ $(GPP_PARAMS) -c  $< -o $@ 
 
 %.o: %.s
@@ -16,7 +25,7 @@ kernel.elf: linker.ld $(OBJECTS)
 	ld $(LD_PARAMS)  -o $@ $(OBJECTS)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJECTS)
 	rm -f *.bin
 	rm -f /build/kernel.iso
 

@@ -1,13 +1,26 @@
 #ifndef QZ_INTERRUPT_H
 #define QZ_INTERRUPT_H
 
-#include "types.h"
-#include "Port.h"
-#include "GlobalDescriptorTable.h"
+#include "../types.h"
+#include "../Port.h"
+#include "../GlobalDescriptorTable.h"
+#include "../assert.h"
+#include "../lib/io.h"
+#include "../lib/memory.h"
+#include "InterruptHandler.h"
+#include "interrupt_list.h"
 
+/*
+ * TODO: If in the future there is no need for multiple managers
+		transform the class into a singleton => no activate / deactivate
+		just Create() and eventually Destroy()
+ */
 class InterruptManager
 {
 protected:
+
+	static InterruptManager* activeInterruptManager;
+
 	struct GateDescriptor
 	{
 		uint16_t handler_address_low;
@@ -40,14 +53,26 @@ protected:
 	Port8BitSlow pic_slave_command;
 	Port8BitSlow pic_slave_data;
 
+	InterruptHandler* handlers[256];
+
 public:
 
 	InterruptManager(GlobalDescriptorTable* gdt);
 	~InterruptManager();
 
+	static InterruptManager* Get() 
+	{
+		ASSERT(activeInterruptManager != NULL)
+		return activeInterruptManager;
+	};
+
 	void activate();
+	void deactivate();
+
+	void addHandler(InterruptHandler* handler);
 
     static uint32_t handleInterrupt(uint8_t interrupt, uint32_t stack_ptr);
+    uint32_t doHandleInterrupt(uint8_t interrupt, uint32_t stack_ptr);
 
 	// Defined in interrupts.s
 	static void ignoreInterruptRequest();

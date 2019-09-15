@@ -46,6 +46,7 @@ int_bottom:
 	pop es
 	pop ds
 	popa
+	sti
 
 _ZN16InterruptManager22ignoreInterruptRequestEv:
 	ret
