@@ -1,6 +1,6 @@
 #include "InterruptManager.h"
 
-void printf(const char* str);
+#include "../lib/io.h"
 
 InterruptManager::GateDescriptor InterruptManager::interrupt_descriptor_table[256];
 InterruptManager* InterruptManager::activeInterruptManager = NULL;
@@ -108,7 +108,7 @@ uint32_t InterruptManager::doHandleInterrupt(uint8_t interrupt, uint32_t stack_p
 	}
 	else {
 		if (interrupt != TIMER_INTERRUPT)
-			printf("Interrupt has not handler");
+			qlib::printf("Interrupt has not handler");
 	}
 
 	// Only hardware interrupts require an answer
