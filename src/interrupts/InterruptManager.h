@@ -1,12 +1,13 @@
 #ifndef QZ_INTERRUPT_H
 #define QZ_INTERRUPT_H
 
+#include <qlib/assert.h>
+#include <qlib/io.h>
+#include <qlib/memory.h>
+
 #include "../types.h"
 #include "../Port.h"
 #include "../GlobalDescriptorTable.h"
-#include "../assert.h"
-#include "../lib/io.h"
-#include "../lib/memory.h"
 #include "InterruptHandler.h"
 #include "interrupt_list.h"
 

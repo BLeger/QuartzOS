@@ -1,13 +1,11 @@
 #include "InterruptManager.h"
 
-#include "../lib/io.h"
-
 InterruptManager::GateDescriptor InterruptManager::interrupt_descriptor_table[256];
 InterruptManager* InterruptManager::activeInterruptManager = NULL;
 
 void InterruptManager::setInterruptDescriptorTableEntry(uint8_t interrupt_number, uint16_t gdt_code_segment_selector, void(*handler)(), uint8_t descriptor_privilege_level, uint8_t descriptor_type)
 {
-	const uint8_t IDT_DESC_PRESENT = 0x80;
+	constexpr uint8_t IDT_DESC_PRESENT = 0x80;
 
 	interrupt_descriptor_table[interrupt_number].handler_address_low = ((uint32_t)handler) & 0xFFFF;
 	interrupt_descriptor_table[interrupt_number].handler_address_high = (((uint32_t)handler) >> 16) & 0xFFFF;
@@ -108,11 +106,11 @@ uint32_t InterruptManager::doHandleInterrupt(uint8_t interrupt, uint32_t stack_p
 	}
 	else {
 		if (interrupt != TIMER_INTERRUPT)
-			qlib::printf("Interrupt has not handler");
+			qlib::printf("Interrupt has no handler");
 	}
 
 	// Only hardware interrupts require an answer
-	if (0x20 <= interrupt && interrupt < 0x30)
+	if (INTERRUPT_OFFSET <= interrupt && interrupt < 0x30)
 	{
 		pic_master_command.write(0x20);
 		// if the interrupt came from slave pic

@@ -1,9 +1,9 @@
-GPP_PARAMS = -m32 -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
+GPP_PARAMS = -m32 -Isrc -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-rtti -fno-exceptions -fno-leading-underscore
 AS_PARAMS = -f elf
 LD_PARAMS = -T linker.ld -melf_i386
 
 OBJECTS = \
-	src/lib/io.o \
+	src/qlib/io.o \
 	src/loader.o \
 	src/kernel.o \
 	src/GlobalDescriptorTable.o \

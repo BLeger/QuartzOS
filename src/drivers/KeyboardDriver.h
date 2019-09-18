@@ -1,12 +1,11 @@
 #ifndef QZ_KEYBOARD_DRIVER_H
 #define QZ_KEYBOARD_DRIVER_H
 
+#include <qlib/io.h>
+
 #include "../interrupts/interrupt_list.h"
 #include "../interrupts/InterruptHandler.h"
-
 #include "../Port.h"
-#include "../lib/io.h"
-
 #include "keycodes.h"
 
 class KeyboardDriver : public InterruptHandler

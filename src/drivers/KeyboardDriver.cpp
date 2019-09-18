@@ -51,8 +51,7 @@ uint32_t KeyboardDriver::handleInterrupt(uint32_t stack_ptr)
 			capslock = !capslock;
 		}
 
-		qlib::printf(keyToChar(key);
-		qlib::printf("\n");
+		qlib::printf(keyToChar(key));
 	}
 
 	return stack_ptr;

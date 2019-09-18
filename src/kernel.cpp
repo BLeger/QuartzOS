@@ -1,9 +1,9 @@
+#include <qlib/io.h>
+
 #include "types.h"
 #include "GlobalDescriptorTable.h"
 #include "interrupts/InterruptManager.h"
 #include "drivers/KeyboardDriver.h"
-
-#include "lib/io.h"
 
 typedef void (*constructor)();
 extern "C" constructor start_ctors;
