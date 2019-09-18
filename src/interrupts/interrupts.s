@@ -27,12 +27,22 @@ global _ZN16InterruptManager22ignoreInterruptRequestEv
 HandleInterruptRequest 0x00
 HandleInterruptRequest 0x01
 
-int_bottom:
-	pusha
-	push ds
-	push es
-	push fs
-	push gs
+int_bottom:	
+	;cli
+	;pusha
+	push ebp
+	push edi
+	push esi
+
+	push edx
+	push ecx
+	push ebx
+	push eax
+
+	;push ds
+	;push es
+	;push fs
+	;push gs
 
 	push esp
 	push dword [interrupt_number]
@@ -41,11 +51,20 @@ int_bottom:
 	; Override stack pointer with the return from handler
 	mov esp, eax
 
-	pop gs
-	pop fs
-	pop es
-	pop ds
-	popa
+	pop eax
+	pop ebx
+	pop ecx
+	pop edx
+	
+	pop esi
+	pop edi
+	pop ebp
+
+	;pop gs
+	;pop fs
+	;pop es
+	;pop ds
+	;popa
 	sti
 
 _ZN16InterruptManager22ignoreInterruptRequestEv:

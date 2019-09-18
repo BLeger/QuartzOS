@@ -1,5 +1,4 @@
-bochs.bat
-qemu.bat
+*.bat
 bochs/*
 .vs/*
 

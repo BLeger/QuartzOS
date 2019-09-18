@@ -10,6 +10,8 @@ namespace qlib
 {
 	char* itoa(int val, int base = 10);
 	void clear_screen();
+
+	void printf(char);
 	void printf(const char*);
 }
 

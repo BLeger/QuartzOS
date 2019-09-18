@@ -22,6 +22,10 @@ private:
 	Port8BitSlow command_port;
 	Port8BitSlow data_port;
 
+	bool shift = false;
+	bool capslock = false;
+
+	inline bool uppercaseEnabled() { return shift || capslock; };
 };
 
 #endif // !QZ_KEYBOARD_DRIVER_H

@@ -1,7 +1,22 @@
 #ifndef QZ_KEYCODES_H
 #define QZ_KEYCODES_H
 
-#define KEY_A 0x1e
+#define QZ_KEYBOARD_QWERTY
+
+#ifdef QZ_KEYBOARD_QWERTY
+	#define KEY_A 0x10
+	#define KEY_M 0x27
+	#define KEY_Q 0x1e
+	#define KEY_W 0x2c
+	#define KEY_Z 0x11
+#else
+	#define KEY_A 0x1e
+	#define KEY_M 0x32
+	#define KEY_Q 0x10
+	#define KEY_W 0x11
+	#define KEY_Z 0x2c
+#endif // QZ_KEYBOARD_QWERTY
+
 #define KEY_B 0x30
 #define KEY_C 0x2e
 #define KEY_D 0x20
@@ -13,20 +28,16 @@
 #define KEY_J 0x24
 #define KEY_K 0x25
 #define KEY_L 0x26
-#define KEY_M 0x32
 #define KEY_N 0x31
 #define KEY_O 0x18
 #define KEY_P 0x19
-#define KEY_Q 0x10
 #define KEY_R 0x13
 #define KEY_S 0x1f
 #define KEY_T 0x14
 #define KEY_U 0x16
 #define KEY_V 0x2f
-#define KEY_W 0x11
 #define KEY_X 0x2d
 #define KEY_Y 0x15
-#define KEY_Z 0x2c
 
 #define KEY_1 0x02
 #define KEY_2 0x03
@@ -42,6 +53,9 @@
 #define KEY_ENTER 0x1c
 #define KEY_BACKSPACE 0x0e
 #define KEY_SPACE 0x39
+#define KEY_LSHIFT 0x2A
+#define KEY_RSHIFT 0xAA
+#define KEY_CAPSLOCK 0x3A
 
 #define KEY_F1 0x3b
 #define KEY_F2 0x3c

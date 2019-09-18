@@ -29,6 +29,13 @@ namespace qlib
 		}
 	}
 
+	void printf(char c) 
+	{
+		static char buffer[2] = {' ', '\0'};
+		buffer[0] = c;
+		printf(buffer);
+	}
+
 	void printf(const char* str)
 	{
 		static uint16_t* VideoMemory = (uint16_t*)0xb8000;
