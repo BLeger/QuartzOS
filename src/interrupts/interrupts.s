@@ -26,6 +26,7 @@ global _ZN16InterruptManager22ignoreInterruptRequestEv
 
 HandleInterruptRequest 0x00
 HandleInterruptRequest 0x01
+HandleInterruptRequest 0x0C
 
 int_bottom:	
 	;cli

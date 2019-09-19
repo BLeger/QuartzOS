@@ -1,7 +1,7 @@
 #include "KeyboardDriver.h"
 
 KeyboardDriver::KeyboardDriver()
-: InterruptHandler(KEYBOARD_INTERRUPT), command_port(0x64), data_port(0x60)
+: InterruptHandler(KEYBOARD_INTERRUPT), command_port(pic_command_port), data_port(pic_data_port)
 {
 	// Remove previous unwanted data
 	while (command_port.read() & 0x01)

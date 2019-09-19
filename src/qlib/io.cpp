@@ -5,12 +5,29 @@ namespace qlib
 	char* itoa(int val, int base) {
 
 		static char buf[32] = { 0 };
-
 		int i = 30;
 
-		for (; val && i; --i, val /= base)
+		if (val == 0)
+		{
+			buf[i] = '0';
+			return &buf[i];
+		}
 
+		bool negative = false;
+		if (val < 0)
+		{
+			negative = true;
+			val *= -1;
+		}
+
+		for (; val && i; --i, val /= base)
 			buf[i] = "0123456789abcdef"[val % base];
+
+		if (negative)
+		{
+			buf[i] = '-';
+			i--;
+		}
 
 		return &buf[i + 1];
 

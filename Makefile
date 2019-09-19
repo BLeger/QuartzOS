@@ -11,7 +11,8 @@ OBJECTS = \
 	src/interrupts/interrupts.o \
 	src/interrupts/InterruptManager.o \
 	src/interrupts/InterruptHandler.o \
-	src/drivers/KeyboardDriver.o
+	src/drivers/KeyboardDriver.o \
+	src/drivers/MouseDriver.o 
 
 all: kernel.iso
 

@@ -25,6 +25,9 @@ private:
 	bool capslock = false;
 
 	inline bool uppercaseEnabled() { return shift || capslock; };
+
+	static constexpr uint8_t pic_command_port = 0x64;
+	static constexpr uint8_t pic_data_port = 0x60;
 };
 
 #endif // !QZ_KEYBOARD_DRIVER_H

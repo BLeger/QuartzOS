@@ -32,6 +32,7 @@ InterruptManager::InterruptManager(GlobalDescriptorTable* gdt)
 
 	setInterruptDescriptorTableEntry(TIMER_INTERRUPT, code_segment, &handleInterruptRequest0x00, 0, IDT_INTERRUPT_GATE);
 	setInterruptDescriptorTableEntry(KEYBOARD_INTERRUPT, code_segment, &handleInterruptRequest0x01, 0, IDT_INTERRUPT_GATE);
+	setInterruptDescriptorTableEntry(MOUSE_INTERRUPT, code_segment, &handleInterruptRequest0x0C, 0, IDT_INTERRUPT_GATE);
 
 	pic_master_command.write(0x11);
 	pic_slave_command.write(0x11);
