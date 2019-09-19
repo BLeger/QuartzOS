@@ -1,7 +1,7 @@
 #ifndef QZ_PORT_H
 #define QZ_PORT_H
 
-#include "types.h"
+#include <qlib/types.h>
 
 class Port 
 {

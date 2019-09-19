@@ -1,6 +1,6 @@
-#ifndef QZ_MEMORY_H
-#define QZ_MEMORY_H
+#ifndef QLIB_MEMORY_H
+#define QLIB_MEMORY_H
 
 #define NULL 0	
 
-#endif // !QZ_MEMORY_H
+#endif // !QLIB_MEMORY_H

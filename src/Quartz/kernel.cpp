@@ -1,6 +1,6 @@
 #include <qlib/io.h>
+#include <qlib/types.h>
 
-#include "types.h"
 #include "GlobalDescriptorTable.h"
 #include "interrupts/InterruptManager.h"
 #include "drivers/KeyboardDriver.h"

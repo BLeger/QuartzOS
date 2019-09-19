@@ -1,10 +1,10 @@
-#ifndef QZ_IO_H
-#define QZ_IO_H
+#ifndef QLIB_IO_H
+#define QLIB_IO_H
 
 #define SCREEN_WIDTH 80
 #define SCREEN_HEIGHT 25
 
-#include "../types.h"
+#include "types.h"
 
 namespace qlib
 {
@@ -15,4 +15,4 @@ namespace qlib
 	void printf(const char*);
 }
 
-#endif // !QZ_IO_H
+#endif // !QLIB_IO_H

@@ -4,10 +4,10 @@
 #include <qlib/assert.h>
 #include <qlib/io.h>
 #include <qlib/memory.h>
+#include <qlib/types.h>
 
-#include "../types.h"
-#include "../Port.h"
-#include "../GlobalDescriptorTable.h"
+#include "Quartz/Port.h"
+#include "Quartz/GlobalDescriptorTable.h"
 #include "InterruptHandler.h"
 #include "interrupt_list.h"
 

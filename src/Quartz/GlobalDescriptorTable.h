@@ -1,7 +1,7 @@
 #ifndef QZ_GLOBAL_DESCRIPTOR_TABLE_H
 #define QZ_GLOBAL_DESCRIPTOR_TABLE_H
 
-#include "types.h"
+#include <qlib/types.h>
 
 class GlobalDescriptorTable 
 {

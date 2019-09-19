@@ -3,9 +3,9 @@
 
 #include <qlib/io.h>
 
-#include "../interrupts/interrupt_list.h"
-#include "../interrupts/InterruptHandler.h"
-#include "../Port.h"
+#include "Quartz/interrupts/interrupt_list.h"
+#include "Quartz/interrupts/InterruptHandler.h"
+#include "Quartz/Port.h"
 #include "keycodes.h"
 
 class KeyboardDriver : public InterruptHandler

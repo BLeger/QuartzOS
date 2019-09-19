@@ -4,15 +4,15 @@ LD_PARAMS = -T linker.ld -melf_i386
 
 OBJECTS = \
 	src/qlib/io.o \
-	src/loader.o \
-	src/kernel.o \
-	src/GlobalDescriptorTable.o \
-	src/Port.o \
-	src/interrupts/interrupts.o \
-	src/interrupts/InterruptManager.o \
-	src/interrupts/InterruptHandler.o \
-	src/drivers/KeyboardDriver.o \
-	src/drivers/MouseDriver.o 
+	src/Quartz/loader.o \
+	src/Quartz/kernel.o \
+	src/Quartz/GlobalDescriptorTable.o \
+	src/Quartz/Port.o \
+	src/Quartz/interrupts/interrupts.o \
+	src/Quartz/interrupts/InterruptManager.o \
+	src/Quartz/interrupts/InterruptHandler.o \
+	src/Quartz/drivers/KeyboardDriver.o \
+	src/Quartz/drivers/MouseDriver.o 
 
 all: kernel.iso
 
