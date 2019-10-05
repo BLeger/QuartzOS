@@ -7,7 +7,7 @@
 #include "Quartz/interrupts/InterruptHandler.h"
 #include "Quartz/Port.h"
 
-class MouseDriver : public InterruptHandler
+class MouseDriver : public InterruptHandler, public Driver
 {
 public:
 	MouseDriver();
@@ -27,6 +27,12 @@ public:
 		BUTTON_RELEASED = 0x00,
 		BUTTON_PRESSED = 0x01
 	};
+
+	virtual void activate() {};
+	virtual int reset() {
+		return 0;
+	};
+	virtual void deactivate() {};
 
 private:
 	Port8BitSlow command_port;
