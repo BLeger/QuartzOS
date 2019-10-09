@@ -6,6 +6,7 @@
 #include "Quartz/interrupts/interrupt_list.h"
 #include "Quartz/interrupts/InterruptHandler.h"
 #include "Quartz/Port.h"
+#include "Driver.h"
 #include "keycodes.h"
 
 class KeyboardDriver : public InterruptHandler, public Driver
@@ -18,11 +19,11 @@ public:
 
 	char keyToChar(uint8_t keycode);
 
-	virtual void activate() {};
-	virtual int reset() {
+	virtual void activate() override {} ;
+	virtual int reset() override {
 		return 0;
 	};
-	virtual void deactivate() {};
+	virtual void deactivate() override {};
 private:
 	Port8BitSlow command_port;
 	Port8BitSlow data_port;

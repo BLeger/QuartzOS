@@ -7,9 +7,9 @@ public:
 	Driver() {};
 	~Driver() {};
 
-	virtual void activate() = 0;
-	virtual int reset() = 0;
-	virtual void deactivate() = 0;
+	virtual void activate() {};
+	virtual int reset() { return 0; };
+	virtual void deactivate() {};
 };
 
 class DriverManager
