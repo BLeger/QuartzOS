@@ -11,8 +11,11 @@ OBJECTS = \
 	src/Quartz/interrupts/interrupts.o \
 	src/Quartz/interrupts/InterruptManager.o \
 	src/Quartz/interrupts/InterruptHandler.o \
+	src/Quartz/drivers/Driver.o \
 	src/Quartz/drivers/KeyboardDriver.o \
-	src/Quartz/drivers/MouseDriver.o 
+	src/Quartz/drivers/MouseDriver.o \
+	src/Quartz/drivers/PeripheralComponentInterconnect.o \
+	src/Quartz/drivers/VGADriver.o
 
 all: kernel.iso
 
