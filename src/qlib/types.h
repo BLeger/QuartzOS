@@ -13,4 +13,6 @@
     typedef long long int64_t;
     typedef unsigned long long uint64_t;
 
+	typedef unsigned int size_t;
+
 #endif // !QLIB_TYPES_H

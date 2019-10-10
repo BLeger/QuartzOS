@@ -15,7 +15,8 @@ OBJECTS = \
 	src/Quartz/drivers/KeyboardDriver.o \
 	src/Quartz/drivers/MouseDriver.o \
 	src/Quartz/drivers/PeripheralComponentInterconnect.o \
-	src/Quartz/drivers/VGADriver.o
+	src/Quartz/drivers/VGADriver.o \
+	src/Quartz/core/MemoryManager.o
 
 all: kernel.iso
 

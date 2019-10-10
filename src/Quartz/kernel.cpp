@@ -3,6 +3,7 @@
 
 #include "GlobalDescriptorTable.h"
 #include "interrupts/InterruptManager.h"
+#include "core/MemoryManager.h"
 #include "drivers/Driver.h"
 #include "drivers/KeyboardDriver.h"
 #include "drivers/MouseDriver.h"
@@ -18,7 +19,7 @@ extern "C" void callConstructors()
         (*i)();
 }
 
-extern "C" void kmain(void* multibooot_structure, uint32_t magic_number) 
+extern "C" void kmain(void* multiboot_structure, uint32_t magic_number) 
 {
     qlib::clear_screen();
 
@@ -36,6 +37,10 @@ extern "C" void kmain(void* multibooot_structure, uint32_t magic_number)
 	MouseDriver mouse{};
 	interrupt_manager.addHandler(&mouse);
 	driver_manager.addDriver(&mouse);
+
+	uint32_t* memupper = (uint32_t*)(((size_t)multiboot_structure) + 8);
+	size_t heap = 10 * 1024 * 1024;
+	MemoryManager memory_manager {10*1024*1024, (*memupper) * 1024 - heap - 10 * 1024 };
 
 	VGADriver VGA{};
 	driver_manager.addDriver(&VGA);
@@ -57,13 +62,12 @@ extern "C" void kmain(void* multibooot_structure, uint32_t magic_number)
 		z++;
 		if (z > 20) z = 0;
 	}
-
-
+	
 	PeripheralComponentInterconnect PCI{};
 	PCI.assignDrivers(driver_manager);
-
 
 	interrupt_manager.activate();
 
     while(true);
 }
+
