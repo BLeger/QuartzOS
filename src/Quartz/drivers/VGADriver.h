@@ -4,7 +4,7 @@
 #include <qlib/io.h>
 
 #include "Driver.h"
-#include "Quartz/Port.h"
+#include "Quartz/core/Port.h"
 
 struct VideoMode
 {

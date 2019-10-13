@@ -1,7 +1,7 @@
 #ifndef QZ_MEMORY_MANAGER
 #define QZ_MEMORY_MANAGER
 
-#include <qlib/types.h>
+#include "Quartz/core/types.h"
 
 /*
  *          

@@ -33,34 +33,38 @@ void* MemoryManager::malloc(size_t size)
 {
 	ChunkHeader* current_header = m_first_chunk;
 
+	// First fit search
+	// Look for the first memory chunk that is large enough
 	while (current_header != nullptr)
 	{
-		if (!current_header->allocated)
+		if (current_header->allocated)
+			continue;
+		
+		size_t chunk_size = current_header->size;
+		if (chunk_size < size)
+			continue;
+		
+		void* allocated_chunk = current_header + sizeof(ChunkHeader);
+		current_header->allocated = true;
+
+		// 10 is arbitrary => need to change to more relevant method
+		// If the chunk is "a lot" bigger than the requested size
+		// Split it to make another free chunk
+		if (chunk_size > size + sizeof(ChunkHeader) * 10)
 		{
-			size_t chunk_size = current_header->size;
-			if (chunk_size > size)
-			{
-				void* allocated_chunk = current_header + sizeof(ChunkHeader);
-				current_header->allocated = true;
+			// Create a new chunk after the current one with all unused space
+			ChunkHeader* new_header = (ChunkHeader*)((size_t)allocated_chunk + size);
+			new_header->allocated = false;
+			new_header->size = current_header->size - size - (2 * sizeof(ChunkHeader));
+			new_header->previous = current_header;
+			new_header->next = current_header->next;
 
-				// 10 is arbitrary => need to change to more relevant method
-				// If the chunk is "a lot" bigger than the requested size
-				// Split it to make another free chunk
-				if (chunk_size > size + sizeof(ChunkHeader) * 10)
-				{
-					ChunkHeader* new_header = (ChunkHeader*)((size_t)allocated_chunk + size);
-					new_header->allocated = false;
-					new_header->size = current_header->size - size - (2 * sizeof(ChunkHeader));
-					new_header->previous = current_header;
-					new_header->next = current_header->next;
-
-					current_header->next = new_header;
-					current_header->size = size;
-				}
-
-				return allocated_chunk;
-			}
+			// Update current chunk to use only necessary space
+			current_header->next = new_header;
+			current_header->size = size;
 		}
+
+		return allocated_chunk;
 	}
 
 	return nullptr;

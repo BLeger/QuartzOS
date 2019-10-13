@@ -6,8 +6,8 @@ OBJECTS = \
 	src/qlib/io.o \
 	src/Quartz/loader.o \
 	src/Quartz/kernel.o \
-	src/Quartz/GlobalDescriptorTable.o \
-	src/Quartz/Port.o \
+	src/Quartz/core/GlobalDescriptorTable.o \
+	src/Quartz/core/Port.o \
 	src/Quartz/interrupts/interrupts.o \
 	src/Quartz/interrupts/InterruptManager.o \
 	src/Quartz/interrupts/InterruptHandler.o \
@@ -16,7 +16,7 @@ OBJECTS = \
 	src/Quartz/drivers/MouseDriver.o \
 	src/Quartz/drivers/PeripheralComponentInterconnect.o \
 	src/Quartz/drivers/VGADriver.o \
-	src/Quartz/core/MemoryManager.o
+	src/Quartz/heap/MemoryManager.o
 
 all: kernel.iso
 

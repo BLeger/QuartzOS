@@ -1,7 +1,7 @@
 #ifndef QZ_INTERRUPT_HANDLER_H
 #define QZ_INTERRUPT_HANDLER_H
 
-#include <qlib/types.h>
+#include "Quartz/core/types.h"
 
 class InterruptManager;
 

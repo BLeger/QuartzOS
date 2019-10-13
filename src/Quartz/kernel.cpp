@@ -1,9 +1,9 @@
 #include <qlib/io.h>
-#include <qlib/types.h>
 
-#include "GlobalDescriptorTable.h"
+#include "core/types.h"
+#include "core/GlobalDescriptorTable.h"
 #include "interrupts/InterruptManager.h"
-#include "core/MemoryManager.h"
+#include "heap/MemoryManager.h"
 #include "drivers/Driver.h"
 #include "drivers/KeyboardDriver.h"
 #include "drivers/MouseDriver.h"

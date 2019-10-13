@@ -1,7 +1,7 @@
 #ifndef QZ_BASE_ADDRESS_REGISTER_H
 #define QZ_BASE_ADDRESS_REGISTER_H
 
-#include <qlib/types.h>
+#include "Quartz/core/types.h"
 
 enum BaseAddressRegisterType {
 	MemoryMapping = 0,

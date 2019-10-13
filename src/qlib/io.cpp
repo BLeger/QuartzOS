@@ -35,7 +35,7 @@ namespace qlib
 
 	void clear_screen()
 	{
-		static uint16_t* VideoMemory = (uint16_t*)0xb8000;
+		static unsigned int* VideoMemory = (unsigned int*)0xb8000;
 
 		for (int x = 0; x < SCREEN_WIDTH; x++)
 		{
@@ -55,10 +55,10 @@ namespace qlib
 
 	void printf(const char* str)
 	{
-		static uint16_t* VideoMemory = (uint16_t*)0xb8000;
+		static unsigned int* VideoMemory = (unsigned int*)0xb8000;
 
 		// Position on the screen
-		static uint8_t cursor_x = 0, cursor_y = 0;
+		static unsigned int cursor_x = 0, cursor_y = 0;
 
 		for (int i = 0; str[i] != '\0'; i++)
 		{
