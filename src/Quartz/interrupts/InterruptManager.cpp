@@ -107,7 +107,7 @@ uint32_t InterruptManager::doHandleInterrupt(uint8_t interrupt, uint32_t stack_p
 	}
 	else {
 		if (interrupt != TIMER_INTERRUPT)
-			qlib::printf("Interrupt has no handler");
+			kprintf("Interrupt has no handler");
 	}
 
 	// Only hardware interrupts require an answer

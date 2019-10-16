@@ -1,8 +1,7 @@
 #ifndef QZ_PERIPHERAL_COMPONENT_INTERCONNECT_H
 #define QZ_PERIPHERAL_COMPONENT_INTERCONNECT_H
 
-#include <qlib/io.h>
-
+#include "Quartz/kprintf.h"
 #include "Quartz/core/Port.h"
 #include "Quartz/interrupts/InterruptManager.h"
 #include "Quartz/drivers/Driver.h"

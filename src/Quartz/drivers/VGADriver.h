@@ -1,8 +1,7 @@
 #ifndef QZ_VGA_DRIVER_H
 #define QZ_VGA_DRIVER_H
 
-#include <qlib/io.h>
-
+#include "Quartz/kprintf.h"
 #include "Driver.h"
 #include "Quartz/core/Port.h"
 

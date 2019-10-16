@@ -62,7 +62,7 @@ void VGADriver::putPixel(uint32_t x, uint32_t y, uint8_t color_index)
 {
 	if (m_current_video_mode.width == 0)
 	{
-		qlib::printf("VideoMode not set!");
+		kprintf("VideoMode not set!");
 		return;
 	}
 

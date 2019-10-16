@@ -1,8 +1,6 @@
 #ifndef QZ_KEYBOARD_DRIVER_H
 #define QZ_KEYBOARD_DRIVER_H
 
-#include <qlib/io.h>
-
 #include "Quartz/interrupts/interrupt_list.h"
 #include "Quartz/interrupts/InterruptHandler.h"
 #include "Quartz/core/Port.h"

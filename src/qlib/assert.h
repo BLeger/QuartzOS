@@ -3,6 +3,6 @@
 
 void printf(const char*);
 
-#define ASSERT(x) if (!x) qlib::printf("ASSERT ERROR");
+#define ASSERT(x) if (!x) ;//qlib::printf("ASSERT ERROR");
 
 #endif // !QLIB_ASSERT_H

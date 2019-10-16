@@ -67,23 +67,23 @@ void PeripheralComponentInterconnect::assignDrivers(DriverManager& driver_manage
 					}
 				}
 
-				qlib::printf("PCI BUS: ");
-				qlib::printf(qlib::itoa(device_descriptor.bus & 0xFF));
-
-				qlib::printf(" Device: ");
-				qlib::printf(qlib::itoa(device_descriptor.device & 0xFF));
-
-				qlib::printf(" Function: ");
-				qlib::printf(qlib::itoa(device_descriptor.function & 0xFF));
-
-				qlib::printf(" Vendor: ");
-				qlib::printf(qlib::itoa((device_descriptor.vendor_id & 0xFF00) >> 8));
-				qlib::printf(qlib::itoa(device_descriptor.vendor_id & 0xFF));
-
-				qlib::printf(" Device: ");
-				qlib::printf(qlib::itoa((device_descriptor.device_id & 0xFF00) >>  8));
-				qlib::printf(qlib::itoa(device_descriptor.device_id & 0xFF));
-				qlib::printf("\n");
+				kprintf("PCI BUS: ");
+				kprintf(itoa(device_descriptor.bus & 0xFF));
+				
+				kprintf(" Device: ");
+				kprintf(itoa(device_descriptor.device & 0xFF));
+				
+				kprintf(" Function: ");
+				kprintf(itoa(device_descriptor.function & 0xFF));
+				
+				kprintf(" Vendor: ");
+				kprintf(itoa((device_descriptor.vendor_id & 0xFF00) >> 8));
+				kprintf(itoa(device_descriptor.vendor_id & 0xFF));
+				
+				kprintf(" Device: ");
+				kprintf(itoa((device_descriptor.device_id & 0xFF00) >>  8));
+				kprintf(itoa(device_descriptor.device_id & 0xFF));
+				kprintf("\n");
 			}
 		}
 	}
@@ -118,7 +118,7 @@ Driver* PeripheralComponentInterconnect::getDriver(PCIDeviceDescriptor device)
 		switch (device.device_id)
 		{
 		case 0x2000: // am79c973
-			qlib::printf("AMD am79c973 ");
+			//qlib::printf("AMD am79c973 ");
 			
 			break;
 		}
@@ -135,7 +135,7 @@ Driver* PeripheralComponentInterconnect::getDriver(PCIDeviceDescriptor device)
 		switch (device.subclass_id)
 		{
 		case 0x00: // VGA
-			qlib::printf("VGA ");
+			//qlib::printf("VGA ");
 			break;
 		}
 		break;

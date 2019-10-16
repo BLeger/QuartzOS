@@ -60,7 +60,7 @@ uint32_t MouseDriver::handleInterrupt(uint32_t stack_ptr)
 				MouseButton button = static_cast<MouseButton>(i);
 				MouseButtonAction action = ((mouse_state[0] & (0x01 << i)) == 0) ?
 											MouseButtonAction::BUTTON_RELEASED : MouseButtonAction::BUTTON_PRESSED;
-				qlib::printf("test");
+				
 			}
 		}
 

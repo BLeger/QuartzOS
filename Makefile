@@ -3,7 +3,7 @@ AS_PARAMS = -f elf
 LD_PARAMS = -T linker.ld -melf_i386
 
 OBJECTS = \
-	src/qlib/io.o \
+	src/Quartz/kprintf.o \
 	src/Quartz/loader.o \
 	src/Quartz/kernel.o \
 	src/Quartz/core/GlobalDescriptorTable.o \

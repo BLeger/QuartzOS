@@ -2,9 +2,9 @@
 #define QZ_INTERRUPT_H
 
 #include <qlib/assert.h>
-#include <qlib/io.h>
 #include <qlib/memory.h>
 
+#include "Quartz/kprintf.h"
 #include "Quartz/core/types.h"
 #include "Quartz/core/Port.h"
 #include "Quartz/core/GlobalDescriptorTable.h"

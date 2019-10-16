@@ -1,8 +1,6 @@
 #ifndef QZ_MOUSE_DRIVER_H
 #define QZ_MOUSE_DRIVER_H
 
-#include <qlib/io.h>
-
 #include "Quartz/interrupts/interrupt_list.h"
 #include "Quartz/interrupts/InterruptHandler.h"
 #include "Driver.h"
